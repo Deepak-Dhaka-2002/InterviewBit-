@@ -32,6 +32,7 @@ Output 2:
 
 Example Explanation
 Explanation 1:
+
     "a"      -   first non repeating character 'a'
     "ab"     -   first non repeating character 'a'
     "aba"    -   first non repeating character 'b'
@@ -40,6 +41,7 @@ Explanation 1:
     "abadbc" -   first non repeating character 'd'
 
 Explanation 2:
+
     "a"      -   first non repeating character 'a'
     "ab"     -   first non repeating character 'a'
     "abc"    -   first non repeating character 'a'
