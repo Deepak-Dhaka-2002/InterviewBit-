@@ -1,0 +1,25 @@
+bool ispal(int x){
+    int org = x;
+    int rev = 0;
+    while(x > 0){
+        rev = rev*10 + x%10;
+        x /= 10;
+    }
+    return (org == rev);
+}
+int Solution::solve(int A, int B, int C) {
+    assert(1 <= A && A <= B && B <= 1e5);
+    assert(1 <= C && C <= 1e5);
+    vector<int> pal;
+    for(int i = A; i <= B; ++i){
+        if(ispal(i)) pal.push_back(i);
+    }
+    int n = pal.size();
+    int j = 0;
+    int ans = 0;
+    for(int i = 0; i < n; ++i){
+        while(j < n && pal[j] - pal[i] <= C ) ++j;
+        ans = max(ans, j-i);
+    }
+    return ans;
+}
