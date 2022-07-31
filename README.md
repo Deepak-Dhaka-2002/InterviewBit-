@@ -1,6 +1,8 @@
 # InterviewBit-
 InterviewBit Solutions
+
 ![image](https://user-images.githubusercontent.com/108542532/182026152-ca3648e6-9b4a-4ee8-b718-fb63dd9979ec.png)
+
 My solutions to algorithmic problems in interviewbit written in C++
 What you can find in this repository
 
