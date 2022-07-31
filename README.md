@@ -99,6 +99,6 @@
 <p dir="auto">One day in the foreseeable future I will have solved all the challenges on <a href="https://www.interviewbit.com" rel="nofollow">interviewbit</a>.
 Then this repository will mostly become a static one.</p>
 <p dir="auto">Constructive criticisms or code reviews of any kind are very much welcome.</p>
-<p dir="auto">If you have any questions about the solutions you can find here, feel free to contact me <strong><a href="mailto:abhisheksharma.0517@gmail.com">abhisheksharma.0517@gmail.com</a></strong>.</p>
+<p dir="auto">If you have any questions about the solutions you can find here, feel free to contact me <strong><a href="mailto:_______">_______</a></strong>.</p>
 </article>
           
