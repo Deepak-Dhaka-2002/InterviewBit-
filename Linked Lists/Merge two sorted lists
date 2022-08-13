@@ -1,0 +1,33 @@
+ListNode* Solution::mergeTwoLists(ListNode* A, ListNode* B) {
+ListNode* head;
+if(A->val > B->val){
+head = B;
+B = B->next;
+}else{
+head = A;
+A = A->next;
+}
+ListNode* p = head;
+while(A && B){
+if(A->val < B->val){
+p->next = A;
+A = A->next;
+p = p->next;
+}else{
+p->next = B;
+B = B->next;
+p = p->next;
+}
+}
+while(A){
+p->next=A;
+A=A->next;
+p = p->next;
+}
+while(B){
+p->next = B;
+B=B->next;
+p = p->next;
+}
+return head;
+}
