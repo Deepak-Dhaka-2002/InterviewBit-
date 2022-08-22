@@ -1,0 +1,27 @@
+ListNode* Solution::solve(ListNode* A) {
+    int zero =0;
+    int ones =0;
+    ListNode* temp = A;
+    
+    while(temp != NULL){
+        if(temp -> val == 0)
+          zero++;
+        else
+          ones++;
+    temp = temp -> next;
+    }
+    
+    temp = A;
+    int i=0;
+    
+    while(temp != NULL){
+        if(i<zero){
+          temp -> val = 0;
+          i++;
+        }
+        else 
+          temp -> val =1;
+    temp = temp -> next;
+    }
+    return A;
+}
