@@ -1,0 +1,20 @@
+int Solution::solve(ListNode* A, int B) {
+    int count=0,i=0;
+    ListNode* temp = A;
+    
+    while(temp != NULL){
+        count++;
+        temp = temp -> next;
+    }
+    int x =(count/2 + 1);
+    
+    if(x-B > 0){
+        while(i < x-B-1){
+          A = A -> next; 
+          i++;
+        }
+      return A->val;  
+    }
+    else
+        return -1;
+}
