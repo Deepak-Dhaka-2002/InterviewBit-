@@ -1,15 +1,54 @@
-int Solution::lPalin(ListNode* A) {
-    vector<int> v;
-    ListNode* temp = A;
-    
-    while(temp != NULL){
-        v.push_back(temp -> val);
-        temp = temp -> next;
+//int Solution::lPalin(ListNode* A) {
+//    vector<int> v;
+//    ListNode* temp = A;
+//    
+//    while(temp != NULL){
+//        v.push_back(temp -> val);
+//        temp = temp -> next;
+//    }
+//    for(int i=0; i<v.size(); i++){
+//        if(v[i] != v[v.size()-1-i]){
+//            return 0;
+//        }
+//    }
+//    return 1;
+//}
+ListNode* REVERSE(ListNode* A){                //  REVERSE a LL
+    ListNode* prev =NULL;
+    ListNode* curr = A;
+    ListNode* nxt = A;
+    while(nxt != NULL){
+        nxt = nxt -> next;
+        curr -> next = prev;
+        prev = curr;
+        curr = nxt;
     }
-    for(int i=0; i<v.size(); i++){
-        if(v[i] != v[v.size()-1-i]){
-            return 0;
-        }
+    return prev;
+}
+ListNode* middle(ListNode* A){
+    ListNode* slow = A;
+    ListNode* fast = A;
+    while(fast -> next != NULL && fast -> next -> next != NULL){    // middle of LL
+        slow = slow -> next;
+        fast = fast -> next -> next;
+    }
+    return slow;
+}
+
+int Solution::lPalin(ListNode* A) {                              // check palindrome
+    
+    ListNode* temp = middle(A);
+    ListNode* mid_nxt = temp -> next;
+    temp -> next = NULL;
+    
+    mid_nxt = REVERSE(mid_nxt);
+    
+    while(mid_nxt != NULL && A != NULL){
+        if(A -> val != mid_nxt -> val)
+           return 0;
+        A = A -> next;
+        mid_nxt = mid_nxt -> next;
     }
     return 1;
+    
 }
