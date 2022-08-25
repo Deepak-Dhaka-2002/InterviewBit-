@@ -1,0 +1,32 @@
+ListNode* Solution::reverseList(ListNode* A, int B) { 
+    int x=1;                     // booleab check for head retrun .
+
+    ListNode* fur = A;           // used to reverse LL.
+    ListNode* curr = A;          // used to reverse LL.
+    ListNode* prev = NULL;       //used to reverse LL.
+    ListNode* prev_tail = A;     // used to connect last node of reversed LL to forst node of reversed LL.
+    ListNode* curr_head = A;     // upadate curr_head/.
+    
+    while(fur){
+        curr_head = curr;
+        prev = NULL;
+        
+        int count = 0;
+        while(count < B){
+            fur = fur -> next;
+            curr -> next = prev;
+            prev = curr;
+            curr = fur;
+            count++;
+        }
+        if(x==1){
+            A = prev;
+            x=0;
+        }
+        else{
+            prev_tail -> next = prev;
+            prev_tail = curr_head;
+        }
+    }
+    return A;
+}
