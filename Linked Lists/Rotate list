@@ -1,0 +1,24 @@
+ListNode* Solution::rotateRight(ListNode* A, int B) {
+    ListNode* temp = A;
+    ListNode* prev = A;
+    int count =1;
+    
+    while(temp -> next){                   // Length of LL
+        count++;
+        temp = temp -> next;
+    }
+    B = B % count;
+    if(count==B)
+       return A;
+       
+    int i = count-B-1;
+   
+    while(i--)                  // Address of last node
+        prev = prev -> next;
+    
+    temp -> next = A;
+    A = prev -> next;
+    prev -> next = NULL;
+               
+  return A;
+}
