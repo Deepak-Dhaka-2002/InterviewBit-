@@ -1,0 +1,85 @@
+ListNode* Solution::solve(ListNode* A) {
+if(A == NULL || A -> next == NULL || A -> next -> next == NULL)
+   return A;
+   
+stack<int> s;
+ListNode * temp =A-> next;
+
+while(temp){
+    s.push(temp -> val);
+    
+    if(temp -> next != NULL){
+      temp = temp -> next;
+        if(temp -> next != NULL)
+            temp = temp -> next;
+        else 
+           temp = NULL;
+    }
+    else
+         temp=NULL;
+}
+temp = A -> next;
+while(temp){
+    temp -> val = s.top();
+    s.pop();
+    
+    if(temp -> next != NULL){
+      temp = temp -> next;
+        if(temp -> next != NULL)
+            temp = temp -> next;
+        else 
+           temp = NULL;
+    }
+    else
+         temp=NULL;
+}
+return A;
+}
+//  if(A == NULL || A -> next == NULL || A -> next -> next == NULL){
+//         return A;
+//     }
+//     ListNode *a = A;
+//     ListNode *b = A -> next;;
+//     ListNode *temp = b -> next;
+//     ListNode *temp1 = a;
+//     ListNode *temp2 = b;
+//     while(temp != NULL){
+//         temp1 -> next = temp;
+//         temp1 = temp;
+//         temp = temp -> next;
+//         temp1 -> next = NULL;
+//         if(temp == NULL){
+//             if(temp2 -> next != NULL){
+//                 temp2 -> next = NULL;
+//             }
+//             break;
+//         }
+//         temp2 -> next = temp;
+//         temp2 = temp;
+//         temp = temp -> next;
+//         temp2 -> next = NULL;
+//     }
+//     ListNode *prev = NULL;
+//     ListNode* nex = b;
+//     while(nex != NULL){
+//         nex = b -> next;
+//         b -> next = prev;
+//         prev = b;
+//         b = nex;
+//     }
+//     b = prev;
+//     temp = a -> next;
+//     temp1 = a;
+//     temp2 = b;
+//     while(b != NULL){
+//         temp2 = b;
+//         b = b -> next;
+//         temp2 -> next = temp;
+//         temp1 -> next = temp2;
+//         temp1 = temp;
+//         if(temp != NULL){
+//             temp = temp -> next;
+//         }
+//     }
+//     return a;
+// }
