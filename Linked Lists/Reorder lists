@@ -1,0 +1,40 @@
+
+ListNode* ReverseLL(ListNode * A){
+    if(A==NULL )        return NULL;
+    if(A->next == NULL) return A;
+    
+    ListNode *current = A,*pre = NULL,*next,*temp;
+    
+    while(current!=NULL){    
+        next = current->next;
+        current->next = pre;
+        pre = current;
+        current = next;
+        }
+    A = pre;
+    return A;
+}
+ListNode* Solution::reorderList(ListNode* A) {
+    if(A == NULL || A -> next == NULL)  return A;
+    
+    ListNode* temp = A;
+    ListNode* slow = A;
+    ListNode* fast = A;
+     
+    while(fast && fast -> next){
+        slow = slow -> next;
+        fast = fast -> next -> next;
+    }
+    ListNode* head = ReverseLL( slow -> next );
+    slow -> next = NULL;
+    
+    while(temp && head){
+        ListNode* temp_dummy = temp -> next;
+        ListNode* head_dummy = head -> next;
+        temp -> next = head ;
+        head -> next = temp_dummy;
+        temp = temp_dummy;
+        head = head_dummy;
+    }
+    return A;
+}
