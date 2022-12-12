@@ -1,0 +1,36 @@
+ListNode* Solution::solve(ListNode* A, int B) {
+     ListNode *curr = A;
+     ListNode *newA = NULL;
+     ListNode *prevTail = NULL;
+     ListNode *prev = NULL;
+
+    while(curr){
+        ListNode* tail = curr
+        ListNode *prev = NULL;
+        ListNode *nxt = curr->next;
+        int cnt = B;
+
+        while(curr && cnt--){
+            curr->next = prev;
+            prev = curr;
+            curr = nxt;
+            if(curr)
+                nxt = curr->next;
+        }
+        if(!newA)
+            newA = prev;
+        if(prevTail)
+            prevTail->next = prev;
+        tail->next = curr;        
+        
+        if(curr){
+            cnt = B;
+            while(curr && cnt--){
+                 prev = curr; 
+                 curr = curr->next; 
+            }
+            prevTail = prev;
+        }
+    }
+    return newA;
+}
