@@ -1,0 +1,24 @@
+// vector<int> Solution::solve(vector<int> &A) {
+//    sort(A.begin(),A.end());
+//    return A;
+//}
+
+
+
+vector<int> Solution::solve(vector<int> &A) {
+    int zero = 0;
+    int ones = 0;
+    for(int i =0 ; i< A.size(); i++){
+        if(A[i]==0)
+          zero++;
+        else
+          ones++;
+    }
+    for(int i =0 ; i< A.size(); i++){
+        if(i < zero)
+         A[i]=0;
+        else
+          A[i]=1;
+    }
+    return A;
+}
