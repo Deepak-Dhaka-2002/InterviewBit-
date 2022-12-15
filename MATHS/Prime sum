@@ -1,0 +1,53 @@
+
+
+bool prime(int n) {
+
+    if(n == 1) return false;
+
+    for(int i=2; i<=sqrt(n); i++) {
+
+        if (n%i == 0) return false;
+
+    }
+
+    return true;
+
+}
+
+
+vector<int> Solution::primesum(int A) {
+
+    vector<int> answer;
+
+    int half1 = 1, half2 = A-1;
+
+    
+
+    int sum = 0;
+
+    while(sum != A) {
+
+        if (prime(half1) && prime(half2)) {
+
+            answer.push_back(half1);
+
+            answer.push_back(half2);
+
+            sum = half1+half2;
+
+        }
+
+        else {
+
+            half1++;
+
+            half2--;
+
+        }
+
+    }
+
+    return answer;
+
+}
+
