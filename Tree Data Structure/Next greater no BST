@@ -1,1 +1,19 @@
-  
+ TreeNode* Solution::getSuccessor(TreeNode* A, int B) {
+TreeNode* ans = NULL;
+TreeNode* curr = A;
+while(curr != NULL){
+    if(B > curr -> val){
+        curr = curr -> right;
+    }
+    else if(B == curr -> val){
+        curr = curr -> right;
+    }
+    else{
+        if(ans == NULL || ans -> val > curr -> val){
+            ans = curr;
+        }
+        curr = curr -> left;
+    }
+}
+return ans ;
+}
