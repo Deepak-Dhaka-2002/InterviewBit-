@@ -1,0 +1,12 @@
+int Solution::gcd(int A, int B) {
+    int minimum = min (A,B);
+    
+    while(minimum > 0){
+        if(A%minimum == 0 && B%minimum == 0)
+          break;
+    minimum--;
+    }
+    if(minimum == 0)
+      return max(A,B);
+    return minimum;
+}
