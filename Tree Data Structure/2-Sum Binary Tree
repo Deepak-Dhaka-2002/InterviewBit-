@@ -1,0 +1,26 @@
+ void inorder(vector<int> &nodes, TreeNode *root){
+        if(root == NULL)return;
+        inorder(nodes, root -> left);
+        nodes.push_back(root -> val);
+        inorder(nodes, root -> right);
+    }
+    
+    // Function to search pair in array using two pointers.
+    bool twoPointers(vector<int> &nodes, int k){
+        // left and right pointer
+        int l = 0, r = nodes.size() - 1;
+        
+        while(l < r){
+        int sum = nodes[l] + nodes[r];
+            if(sum == k)return true; //If found valid pair, return true.
+            else if(sum < k) l++;   
+            else if(sum > k) r--;
+        }
+        return false;     // If pair not found, return false.
+    }
+    // Given Function
+int Solution::t2Sum(TreeNode* A, int B) {
+       vector<int> nodes;
+        inorder(nodes, A);
+        return twoPointers(nodes, B);
+       }
