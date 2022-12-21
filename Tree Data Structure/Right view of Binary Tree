@@ -1,0 +1,16 @@
+void RVU(TreeNode* root , int level , int* max_level ,vector<int> &v){
+    if(root == NULL)
+      return;
+    if(*max_level < level){
+        v.push_back(root -> val);
+        *max_level = level;
+    }
+    RVU(root -> right , level+1 , max_level , v);
+    RVU(root -> left , level+1 , max_level , v);
+}
+vector<int> Solution::solve(TreeNode* A) {
+    vector<int> v;
+    int max_level =0;
+    RVU(A , 1 , &max_level , v);
+    return v;
+}
